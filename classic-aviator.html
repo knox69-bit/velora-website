@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Aviator | Velora</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Velora</h1>
+        <h2>where style meets the sun</h2>
+        <nav>
+            <a href="cart.html" class="cart-link">🛒 View Cart</a>
+        </nav>
+    </header>
+    <main>
+        <section class="product-detail">
+            <img src="imgs/Classic Aviator Sunglasses.webp" alt="Classic Aviator Sunglasses" class="detail-image" id="product-img">
+            <div class="detail-info">
+                <h2 id="product-name">Classic Aviator</h2>
+                <p class="price" id="product-price">$79.99</p>
+                <p>
+                    Timeless design meets modern comfort. The Classic Aviator sunglasses feature a lightweight metal frame, UV400 protection, and adjustable nose pads for all-day wear.
+                </p>
+                <button id="add-to-cart-btn">Add to Cart</button>
+                <br><br>
+                <a href="index.html" class="back-link">← Back to Collection</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Velora. All rights reserved.</p>
+    </footer>
+    <div id="toast" class="toast"></div>
+    <script>
+    document.getElementById('add-to-cart-btn').addEventListener('click', function() {
+        const name = document.getElementById('product-name').innerText;
+        const price = document.getElementById('product-price').innerText;
+        const img = document.getElementById('product-img').getAttribute('src');
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const existing = cart.find(item => item.name === name && item.price === price);
+        if (existing) {
+            existing.quantity += 1;
+        } else {
+            cart.push({ name, price, img, quantity: 1 });
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        showToast(`${name} added to cart!`);
+    });
+
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.className = 'toast show';
+        setTimeout(() => {
+            toast.className = 'toast';
+        }, 2000);
+    }
+    </script>
+</body>
+</html>
