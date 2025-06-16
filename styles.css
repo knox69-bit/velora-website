@@ -28,11 +28,12 @@ header {
     padding: 0 18px;
 }
 .site-logo {
+    position: absolute;
     height: 70px;
     width: auto;
     margin-left: 18px;      /* moves it a little to the right */
     margin-right: 14px;
-    margin-top: 25px; /* aligns it vertically with the text */
+    margin-top: -20px; /* aligns it vertically with the text */
     vertical-align: middle;
     border-radius: 50px;    /* makes the edges round */
     object-fit: cover;
