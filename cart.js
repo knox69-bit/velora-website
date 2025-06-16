@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         message += `Total: $${total.toFixed(2)}`;
 
         // Replace with your WhatsApp number (no + or spaces)
-        let phone = '96176574238';
+        let phone = '9613263495';
         let url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
         window.open(url, '_blank');
     });

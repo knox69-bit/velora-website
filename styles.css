@@ -22,6 +22,24 @@ header {
     box-shadow: 0 4px 16px rgba(34,34,34,0.08);
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px;
+}
+.site-logo {
+    height: 70px;
+    width: auto;
+    margin-left: 18px;      /* moves it a little to the right */
+    margin-right: 14px;
+    margin-top: 25px; /* aligns it vertically with the text */
+    vertical-align: middle;
+    border-radius: 50px;    /* makes the edges round */
+    object-fit: cover;
+}
+.logo-link {
+    flex-shrink: 0;
+    vertical-align: middle;
 }
 
 header h1 {
@@ -43,10 +61,11 @@ header h2 {
 
 .cart-nav {
     position: absolute;
-    top: 24px;
+    top: 40px;
     right: 32px; /* Change from left to right */
     left: auto;
     z-index: 10;
+    flex-shrink: 0;
 }
 
 .cart-link {
@@ -439,6 +458,55 @@ footer .contact-link:hover {
     transition: box-shadow 0.6s;
 }
 
+.contact-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 10px;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: transparent;
+    transition: background 0.2s, transform 0.2s;
+    text-decoration: none;
+    margin: 0 2px;
+}
+
+.social-icon svg {
+    width: 24px;
+    height: 24px;
+    color: #e0dacd;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.social-icon.whatsapp svg { color: #25D366; }
+.social-icon.instagram svg { color: #E1306C; }
+.social-icon.facebook svg { color: #1877F3; }
+.social-icon.tiktok svg { color: #000; }
+
+.social-icon:hover,
+.social-icon:focus {
+    background: #f5f5dc;
+    transform: scale(1.13);
+}
+
+.social-icon:hover svg,
+.social-icon:focus svg {
+    color: #ffb300;
+}
+
+.header-center {
+    flex: 1;
+    text-align: center;
+    margin-right: 50px; /* Adjust as needed */
+}
 
 @media (max-width: 700px) {
     header {
