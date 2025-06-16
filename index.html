@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velora Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="header-link" style="text-decoration:none; color:inherit;">
+            <h1>Welcome to Velora</h1>
+            <h2>where style meets the sun</h2>
+        </a>
+        <nav class="cart-nav">
+            <a href="cart.html" class="cart-link" title="View Cart">🛒</a>
+        </nav>
+    </header>
+    <main>
+        <section class="products">
+            <h3>Our Sunglasses Collection</h3>
+            <div class="product-grid">
+                <div class="product-card" id="product-Classic-Aviator" data-images='["Classic Aviator Sunglasses.webp","Retro Round Sunglasses.webp","Sporty Shield Sunglasses.webp"]'>
+                    <img src="Classic Aviator Sunglasses.webp" alt="Classic Aviator Sunglasses" class="product-img">
+                    <button class="img-switch-btn prev" aria-label="Previous image">&#8592;</button>
+                    <button class="img-switch-btn next" aria-label="Next image">&#8594;</button>
+                    <h4>Classic Aviator</h4>
+                    <p>$79.99</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                    <button class="show-more-btn">Show More</button>
+                    <div class="product-description">
+                        Timeless design meets modern comfort...
+                    </div>
+                </div>
+                <div class="product-card" id="product-Retro-Round" data-images='["Classic Aviator Sunglasses.webp","Retro Round Sunglasses.webp","Sporty Shield Sunglasses.webp"]'>
+                    <img src="Retro Round Sunglasses.webp" alt="Retro Round Sunglasses" class="product-img">
+                    <button class="img-switch-btn prev" aria-label="Previous image">&#8592;</button>
+                    <button class="img-switch-btn next" aria-label="Next image">&#8594;</button>
+                    <h4>Retro Round</h4>
+                    <p>$79.99</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                    <button class="show-more-btn">Show More</button>
+                    <div class="product-description">
+                        Timeless design meets modern comfort bla bla bla...
+                    </div>
+                </div>
+                <div class="product-card" id="product-Sporty-Shield" data-images='["Classic Aviator Sunglasses.webp","Retro Round Sunglasses.webp","Sporty Shield Sunglasses.webp"]'>
+                    <img src="Sporty Shield Sunglasses.webp" alt="Sporty Shield Sunglasses" class="product-img">
+                    <button class="img-switch-btn prev" aria-label="Previous image">&#8592;</button>
+                    <button class="img-switch-btn next" aria-label="Next image">&#8594;</button>
+                    <h4>Sporty Shield</h4>
+                    <p>$79.99</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                    <button class="show-more-btn">Show More</button>
+                    <div class="product-description">
+                        Timeless design meets modern comfort la la al al al...
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>
+            &copy; 2025 Velora. All rights reserved. |
+            <a href="https://wa.me/96176574238" target="_blank" class="contact-link">Contact Us</a>
+        </p>
+    </footer>
+    <div id="toast" class="toast"></div>
+    <script src="main.js"></script>
+</body>
+</html>
