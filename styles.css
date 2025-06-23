@@ -633,11 +633,17 @@ footer .contact-link:hover {
         margin: 0.15rem 0;
         text-align: center;
     }
-     .img-switch-btn {
-        width: 8px;
-        height: 8px;
-        font-size: 1rem;
-        top: 28px; /* adjust as needed for your image size */
+    .img-switch-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 1.1rem;
+    min-width: 0;
+    padding: 0;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
     }
     .product-card button,
     .show-more-btn,
