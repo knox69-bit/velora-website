@@ -634,13 +634,13 @@ footer .contact-link:hover {
         text-align: center;
     }
     .img-switch-btn {
-        width: 22px;
-        height: 22px;
-        font-size: 1rem;
-        top: 60px; /* Adjust as needed to align vertically with your image */
+        width: 28px;
+        height: 28px;
+        font-size: 1.1rem;
+        top: 44px; /* adjust as needed for your image size */
         min-width: 0;
         padding: 0;
-        display: none; /* hidden by default */
+        display: flex !important;
         align-items: center;
         justify-content: center;
         background: transparent;
@@ -648,7 +648,6 @@ footer .contact-link:hover {
     }
     .img-switch-btn.prev { left: 2px; }
     .img-switch-btn.next { right: 2px; }
-
     .product-card button,
     .show-more-btn,
     .add-to-cart-btn {
