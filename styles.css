@@ -638,8 +638,8 @@ footer .contact-link:hover {
     .img-switch-btn {
          display: flex !important;
          position: absolute;
-         top: 90px;
-         width: -320px;
+         top: 45px;
+         width: 32px;
          height: 32px;
          background: transparent; /* transparent background */
          border: none;
@@ -659,7 +659,6 @@ footer .contact-link:hover {
 }
     .img-switch-btn.prev { left: 2px; }
     .img-switch-btn.next { right: 2px; }
-    .product-card button,
     .show-more-btn,
     .add-to-cart-btn {
         font-size: 0.93rem;
