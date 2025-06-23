@@ -636,20 +636,20 @@ footer .contact-link:hover {
         text-align: center;
     }
     .img-switch-btn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 10%;
-        height: 10%;
-        font-size: 1.1rem;
-        min-width: 0;
-        padding: 0;
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        background: transparent;
-        border: none;
-        z-index: 2;
+         display: flex !important;
+         position: absolute;
+         top: 90px;
+         width: 32px;
+         height: 32px;
+         background: transparent; /* transparent background */
+         border: none;
+         border-radius: 50%;
+         font-size: 1.4rem;
+         color: #222;
+         cursor: pointer;
+         z-index: 2;
+         display: none; /* hidden by default */
+         transition: background 0.2s, color 0.2s, transform 0.15s;
     }
    .img-switch-btn {
     display: none !important;
