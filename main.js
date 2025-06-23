@@ -67,30 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 showImg(current);
             });
         }
-
-        // Swipe detection for mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        img.addEventListener('touchstart', function(e) {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-
-        img.addEventListener('touchend', function(e) {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
-
-        function handleSwipe() {
-            if (touchEndX < touchStartX - 30) { // swipe left
-                current = (current + 1) % images.length;
-                img.setAttribute('src', images[current]);
-            }
-            if (touchEndX > touchStartX + 30) { // swipe right
-                current = (current - 1 + images.length) % images.length;
-                img.setAttribute('src', images[current]);
-            }
-        }
     });
 
     document.querySelectorAll('.cart-item-link').forEach(link => {
@@ -123,5 +99,3 @@ function showToast(message) {
         toast.className = 'toast';
     }, 2000);
 }
-
-
