@@ -634,10 +634,12 @@ footer .contact-link:hover {
         text-align: center;
     }
     .img-switch-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
         width: 28px;
         height: 28px;
         font-size: 1.1rem;
-        top: 44px; /* adjust as needed for your image size */
         min-width: 0;
         padding: 0;
         display: flex !important;
@@ -645,6 +647,10 @@ footer .contact-link:hover {
         justify-content: center;
         background: transparent;
         border: none;
+        z-index: 2;
+    }
+    .product-card.showing-more .img-switch-btn {
+    display: flex !important;
     }
     .img-switch-btn.prev { left: 2px; }
     .img-switch-btn.next { right: 2px; }
