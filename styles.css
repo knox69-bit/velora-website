@@ -634,10 +634,10 @@ footer .contact-link:hover {
         text-align: center;
     }
     .img-switch-btn {
-        width: 22px;
-        height: 22px;
+        width: 12px;
+        height: 12px;
         font-size: 1rem;
-        top: 60px; /* Adjust as needed to align vertically with your image */
+        top: 30px; /* Adjust as needed to align vertically with your image */
         min-width: 0;
         padding: 0;
         display: flex !important;
