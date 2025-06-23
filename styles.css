@@ -507,7 +507,7 @@ footer .contact-link:hover {
     margin-right: 50px; /* Adjust as needed */
 }
 
-@media (max-width: 700px) {
+/*@media (max-width: 700px) {
     header {
         padding: 1.2rem 0 0.7rem 0;
         border-bottom-left-radius: 18px;
@@ -556,4 +556,4 @@ footer .contact-link:hover {
     header {
         padding: 0 4px;
     }
-}
+}*/
