@@ -633,14 +633,14 @@ footer .contact-link:hover {
         margin: 0.15rem 0;
         text-align: center;
     }
-    .product-card button,
-    .show-more-btn,
-    .img-switch-btn {
+     .img-switch-btn {
         width: 22px;
         height: 22px;
         font-size: 1rem;
         top: 48px; /* adjust as needed for your image size */
     }
+    .product-card button,
+    .show-more-btn,
     .add-to-cart-btn {
         font-size: 0.93rem;
         padding: 0.32rem 0;
