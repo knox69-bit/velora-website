@@ -119,7 +119,7 @@ header h2 {
     border-radius: 18px;
     box-shadow: 0 4px 24px rgba(34,34,34,0.10);
     padding: 1.5rem 1rem;
-    width: 140px;
+    width: 240px;
     text-align: center;
     transition: transform 0.2s, box-shadow 0.2s;
     border: 2px solid #e0dacd;
@@ -522,6 +522,7 @@ footer .contact-link:hover {
     }
     .product-grid {
         gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
     }
     .product-card {
         width: 95vw;
