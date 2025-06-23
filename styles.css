@@ -633,21 +633,6 @@ footer .contact-link:hover {
         margin: 0.15rem 0;
         text-align: center;
     }
-    /*.img-switch-btn {
-    width: 28px;
-    height: 28px;
-    font-size: 1.1rem;
-    min-width: 0;
-    padding: 0;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    background: transparent;
-    border: none;
-    }
-    .product-card.showing-more .img-switch-btn {
-    display: flex;
-    }*/
     .product-card button,
     .show-more-btn,
     .add-to-cart-btn {
