@@ -573,7 +573,7 @@ footer .contact-link:hover {
         min-height: 48px;
     }
     .site-logo {
-        height: 26px;
+        height: 56px;
         margin-left: 2px;
         margin-right: 8px;
         border-radius: 8px;
@@ -635,6 +635,12 @@ footer .contact-link:hover {
     }
     .product-card button,
     .show-more-btn,
+    .img-switch-btn {
+        width: 22px;
+        height: 22px;
+        font-size: 1rem;
+        top: 48px; /* adjust as needed for your image size */
+    }
     .add-to-cart-btn {
         font-size: 0.93rem;
         padding: 0.32rem 0;
