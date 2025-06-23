@@ -119,12 +119,12 @@ header h2 {
     border-radius: 18px;
     box-shadow: 0 4px 24px rgba(34,34,34,0.10);
     padding: 1.5rem 1rem;
-    width: 240px;
+    width: 200px;
     text-align: center;
     transition: transform 0.2s, box-shadow 0.2s;
     border: 2px solid #e0dacd;
     position: relative;
-    height: 350px;
+    height: auto;
     min-height: 0;
     max-height: none;
 }
@@ -524,8 +524,8 @@ footer .contact-link:hover {
         gap: 1rem;
     }
     .product-card {
-        width: 95vw;
-        max-width: 340px;
+        width: auto;
+        max-width: auto;
         padding: 1rem 0.5rem;
     }
     .product-card img {
