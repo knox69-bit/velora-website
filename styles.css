@@ -639,7 +639,7 @@ footer .contact-link:hover {
          display: flex !important;
          position: absolute;
          top: 90px;
-         width: 32px;
+         width: -320px;
          height: 32px;
          background: transparent; /* transparent background */
          border: none;
