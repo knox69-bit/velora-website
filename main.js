@@ -37,15 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Example images for each product card (expand as needed)
-    const productImages = [
-        [
-            "Classic Aviator Sunglasses.webp",
-            "Retro Round Sunglasses.webp",
-            "Sporty Shield Sunglasses.webp"
-        ]
-        // Add more arrays for more product cards if needed
-    ];
 
     document.querySelectorAll('.product-card').forEach(function(card, idx) {
         const img = card.querySelector('.product-img');
