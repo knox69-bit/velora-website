@@ -633,7 +633,7 @@ footer .contact-link:hover {
         margin: 0.15rem 0;
         text-align: center;
     }
-    .img-switch-btn {
+    /*.img-switch-btn {
     width: 28px;
     height: 28px;
     font-size: 1.1rem;
@@ -647,7 +647,7 @@ footer .contact-link:hover {
     }
     .product-card.showing-more .img-switch-btn {
     display: flex;
-    }
+    }*/
     .product-card button,
     .show-more-btn,
     .add-to-cart-btn {
