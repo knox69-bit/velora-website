@@ -124,7 +124,7 @@ header h2 {
     transition: transform 0.2s, box-shadow 0.2s;
     border: 2px solid #e0dacd;
     position: relative;
-    height: auto;
+    height: 350px;
     min-height: 0;
     max-height: none;
 }
@@ -522,7 +522,6 @@ footer .contact-link:hover {
     }
     .product-grid {
         gap: 1rem;
-        /*grid-template-columns: repeat(3, 1fr);*/
     }
     .product-card {
         width: 95vw;
