@@ -112,8 +112,8 @@ document.querySelectorAll('.product-card').forEach(function(card) {
     } catch (e) {}
     let current = 0;
 
-    // Map color index to image index (adjust as needed)
-    const colorToImgIndex = [0, 1, 2];
+    // Get color step from data attribute, default to 1
+    const colorStep = parseInt(card.getAttribute('data-color-step')) || 1;
 
     function showImg(i) {
         img.setAttribute('src', images[i]);
@@ -137,9 +137,9 @@ document.querySelectorAll('.product-card').forEach(function(card) {
     const colorRadios = card.querySelectorAll('.color-options input[type="radio"]');
     colorRadios.forEach((radio, idx) => {
         radio.addEventListener('change', function() {
-            const imgIdx = colorToImgIndex[idx] !== undefined ? colorToImgIndex[idx] : 0;
+            const imgIdx = idx * colorStep;
             if (images[imgIdx]) {
-                current = imgIdx; // sync current!
+                current = imgIdx;
                 showImg(current);
             }
         });
