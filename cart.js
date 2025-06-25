@@ -16,7 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const li = document.createElement('li');
             li.innerHTML = `
                 <img src="${item.img}" alt="${item.name}" style="height:32px;vertical-align:middle;margin-right:8px;">
-                <span class="cart-item-link" data-product="${item.name}" style="cursor:pointer;text-decoration:underline;">${item.name} - ${item.price} x ${item.quantity}</span>
+                <span class="cart-item-link" data-product="${item.name}" style="cursor:pointer;text-decoration:underline;">
+                    ${item.name} - ${item.price} x ${item.quantity}
+                </span>
+                <span class="cart-color" style="display:inline-block;vertical-align:middle;margin-left:8px;">
+                    <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:${item.color.toLowerCase()};border:1px solid #ccc;vertical-align:middle;"></span>
+                    <span style="font-size:0.95em;margin-left:4px;">${item.color}</span>
+                </span>
                 <button class="remove-item-btn" data-idx="${idx}" title="Remove one">−</button>
             `;
             cartList.appendChild(li);

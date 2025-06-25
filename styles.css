@@ -513,6 +513,58 @@ footer .contact-link:hover {
     text-align: center;
     margin-right: 50px; /* Adjust as needed */
 }
+    /*for the color options*/
+.color-options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 0.7rem;
+}
+.color-options input[type="radio"] {
+    display: none;
+}
+.color-dot {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    transition: border 0.2s;
+    box-shadow: 0 1px 4px #2222;
+}
+.color-options input[type="radio"]:checked + .color-dot {
+    border: 3px solid #222;
+    box-shadow: 0 0 0 2px #ffb300;
+}
+
+.product-description .color-options {
+    margin-top: 0.7rem;
+}
+    /*for the out of stock*/
+.out-of-stock-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(34,34,34,0.65);
+    color: #fffaf3;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    z-index: 10;
+    pointer-events: none;
+    text-shadow: 1px 1px 8px #222;
+}
+.add-to-cart-btn.disabled,
+.add-to-cart-btn:disabled {
+    background: #aaa !important;
+    color: #fff !important;
+    cursor: not-allowed !important;
+    border: 1px solid #888 !important;
+    opacity: 0.7;
+}
 
 /*@media (max-width: 700px) {
     header {

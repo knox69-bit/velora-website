@@ -8,15 +8,18 @@ document.addEventListener('DOMContentLoaded', function() {
             const name = card.querySelector('h4').innerText;
             const price = card.querySelector('p').innerText;
             const img = card.querySelector('img').getAttribute('src');
+            // Get selected color
+            const colorInput = card.querySelector('input[type="radio"][name^="color-"]:checked');
+            const color = colorInput ? colorInput.value : 'Red';
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const existing = cart.find(item => item.name === name && item.price === price);
+            const existing = cart.find(item => item.name === name && item.price === price && item.color === color);
             if (existing) {
                 existing.quantity += 1;
             } else {
-                cart.push({ name, price, img, quantity: 1 });
+                cart.push({ name, price, img, color, quantity: 1 });
             }
             localStorage.setItem('cart', JSON.stringify(cart));
-            showToast(`${name} added to cart!`);
+            showToast(`${name} (${color}) added to cart!`);
         });
     });
 
@@ -89,6 +92,35 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => el.classList.remove('highlight'), 2000);
         }
     }
+
+    document.querySelectorAll('.product-card').forEach(card => {
+        const isOut = card.getAttribute('data-outofstock') === "true";
+        const addBtn = card.querySelector('.add-to-cart-btn');
+        if (isOut) {
+            // Add overlay if not already present
+            if (!card.querySelector('.out-of-stock-overlay')) {
+                const overlay = document.createElement('div');
+                overlay.className = 'out-of-stock-overlay';
+                overlay.textContent = 'Out of Stock';
+                card.style.position = 'relative';
+                card.appendChild(overlay);
+            }
+            if (addBtn) {
+                addBtn.disabled = true;
+                addBtn.textContent = "Out of Stock";
+                addBtn.classList.add('disabled');
+            }
+        } else {
+            // Remove overlay if present
+            const overlay = card.querySelector('.out-of-stock-overlay');
+            if (overlay) overlay.remove();
+            if (addBtn) {
+                addBtn.disabled = false;
+                addBtn.textContent = "Add to Cart";
+                addBtn.classList.remove('disabled');
+            }
+        }
+    });
 });
 
 function showToast(message) {
