@@ -7,10 +7,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const card = button.closest('.product-card');
             const name = card.querySelector('h4').innerText;
             const price = card.querySelector('p').innerText;
-            const img = card.querySelector('img').getAttribute('src');
-            // Get selected color
             const colorInput = card.querySelector('input[type="radio"][name^="color-"]:checked');
-            const color = colorInput ? colorInput.value : 'Red';
+            if (!colorInput) {
+                showToast('Please select a color');
+                return;
+            }
+            // Use the color image if available, else fallback to main image
+            const img = colorInput.getAttribute('data-color-img') 
+                ? colorInput.getAttribute('data-color-img') 
+                : card.querySelector('.product-img').getAttribute('src');
+            const color = colorInput.value;
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             const existing = cart.find(item => item.name === name && item.price === price && item.color === color);
             if (existing) {
@@ -135,9 +141,9 @@ document.querySelectorAll('.product-card').forEach(function(card) {
 
     // Color radios
     const colorRadios = card.querySelectorAll('.color-options input[type="radio"]');
-    colorRadios.forEach((radio, idx) => {
+    colorRadios.forEach((radio) => {
         radio.addEventListener('change', function() {
-            const imgIdx = idx * colorStep;
+            const imgIdx = parseInt(radio.getAttribute('data-img-index')) || 0;
             if (images[imgIdx]) {
                 current = imgIdx;
                 showImg(current);
@@ -194,6 +200,25 @@ document.querySelectorAll('.product-card').forEach(function(card) {
                 addBtn.classList.remove('disabled');
             }
         }
+    });
+
+    document.querySelectorAll('.product-card').forEach(function(card) {
+        const colorImgBox = card.querySelector('.color-img-box');
+        const colorImg = card.querySelector('.color-img');
+        const colorRadios = card.querySelectorAll('.color-options input[type="radio"]');
+
+        colorRadios.forEach((radio) => {
+            radio.addEventListener('change', function() {
+                // Get the image for this color (from data-img or data-img-index or similar)
+                const colorImgSrc = radio.getAttribute('data-color-img');
+                if (colorImgSrc && colorImgBox && colorImg) {
+                    colorImg.src = colorImgSrc;
+                    colorImgBox.style.display = 'block';
+                } else if (colorImgBox) {
+                    colorImgBox.style.display = 'none';
+                }
+            });
+        });
     });
 });
 

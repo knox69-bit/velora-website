@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     ${item.name} - ${item.price} x ${item.quantity}
                 </span>
                 <span class="cart-color" style="display:inline-block;vertical-align:middle;margin-left:8px;">
-                    <span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:linear-gradient(${item.color.toLowerCase()});border:1px solid #ccc;vertical-align:middle;"></span>
                     <span style="font-size:0.95em;margin-left:4px;">${item.color}</span>
                 </span>
                 <button class="remove-item-btn" data-idx="${idx}" title="Remove one">−</button>
