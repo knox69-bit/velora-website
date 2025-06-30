@@ -47,64 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-    /*
-    //arrow buttons for image switching
-    document.querySelectorAll('.product-card').forEach(function(card, idx) {
-        const img = card.querySelector('.product-img');
-        const prevBtn = card.querySelector('.img-switch-btn.prev');
-        const nextBtn = card.querySelector('.img-switch-btn.next');
-        let images = [img.getAttribute('src')];
-        const dataImages = card.getAttribute('data-images');
-        if (dataImages) {
-            try {
-                images = JSON.parse(dataImages);
-            } catch (e) {}
-        }
-        let current = 0;
-
-        function showImg(i) {
-            img.setAttribute('src', images[i]);
-        }
-
-        if (prevBtn && nextBtn) {
-            prevBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                current = (current - 1 + images.length) % images.length;
-                showImg(current);
-            });
-            nextBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                current = (current + 1) % images.length;
-                showImg(current);
-            });
-        }
-});
-// Color change logic for product images
-document.querySelectorAll('.product-card').forEach(function(card) {
-    const img = card.querySelector('.product-img');
-    const dataImages = card.getAttribute('data-images');
-    if (!img || !dataImages) return;
-    let images = [];
-    try {
-        images = JSON.parse(dataImages);
-    } catch (e) {}
-
-    // Map color index to image index
-    const colorToImgIndex = [0, 2, 4];
-
-    // Listen for color change
-    const colorRadios = card.querySelectorAll('.color-options input[type="radio"]');
-    colorRadios.forEach((radio, idx) => {
-        radio.addEventListener('change', function() {
-            const imgIdx = colorToImgIndex[idx] !== undefined ? colorToImgIndex[idx] : 0;
-            if (images[imgIdx]) {
-                img.setAttribute('src', images[imgIdx]);
-            }
-        });
-    });
-});
-
- */
 // Image switching logic for product cards color and arrow buttons
 document.querySelectorAll('.product-card').forEach(function(card) {
     const img = card.querySelector('.product-img');
@@ -206,10 +148,11 @@ document.querySelectorAll('.product-card').forEach(function(card) {
         const colorImgBox = card.querySelector('.color-img-box');
         const colorImg = card.querySelector('.color-img');
         const colorRadios = card.querySelectorAll('.color-options input[type="radio"]');
+        const lensColorText = card.querySelector('.lens-color-text');
 
         colorRadios.forEach((radio) => {
             radio.addEventListener('change', function() {
-                // Get the image for this color (from data-img or data-img-index or similar)
+                // Show color image
                 const colorImgSrc = radio.getAttribute('data-color-img');
                 if (colorImgSrc && colorImgBox && colorImg) {
                     colorImg.src = colorImgSrc;
@@ -217,20 +160,54 @@ document.querySelectorAll('.product-card').forEach(function(card) {
                 } else if (colorImgBox) {
                     colorImgBox.style.display = 'none';
                 }
+                // Show lens color text from data-lens-color
+                if (lensColorText) {
+                    const lensColor = radio.getAttribute('data-lens-color') || '';
+                    lensColorText.textContent = lensColor ? "Lens color: " + lensColor : "";
+                    lensColorText.style.display = lensColor ? 'block' : 'none';
+                }
             });
         });
     });
 
 // Expand image on click
+let modalImages = [];
+let modalCurrent = 0;
+
 document.querySelectorAll('.product-img, .color-img').forEach(img => {
     img.style.cursor = 'zoom-in';
     img.addEventListener('click', function() {
+        const card = img.closest('.product-card');
+        let images = [];
+        let isColorImg = img.classList.contains('color-img');
+        if (card && card.getAttribute('data-images') && !isColorImg) {
+            try { images = JSON.parse(card.getAttribute('data-images')); } catch (e) {}
+        }
+        // If color image, show only that image in modal
+        if (isColorImg) {
+            images = [img.src];
+        }
+        modalImages = images.length ? images : [img.src];
+        modalCurrent = modalImages.indexOf(img.src);
+        if (modalCurrent === -1) modalCurrent = 0;
+
         const modal = document.getElementById('img-modal');
         const modalImg = document.getElementById('img-modal-img');
-        modalImg.src = img.src;
+        modalImg.src = modalImages[modalCurrent];
         modal.style.display = 'flex';
+
+        // Hide prev/next buttons if only one image (color preview)
+        document.querySelector('.img-modal-prev').style.display = (modalImages.length > 1) ? 'flex' : 'none';
+        document.querySelector('.img-modal-next').style.display = (modalImages.length > 1) ? 'flex' : 'none';
     });
 });
+
+function showModalImg(idx) {
+    if (!modalImages.length) return;
+    modalCurrent = (idx + modalImages.length) % modalImages.length;
+    document.getElementById('img-modal-img').src = modalImages[modalCurrent];
+}
+
 document.querySelector('.img-modal-close').onclick = function() {
     document.getElementById('img-modal').style.display = 'none';
 };
@@ -238,6 +215,14 @@ document.getElementById('img-modal').onclick = function(e) {
     if (e.target === this) this.style.display = 'none';
 };
 
+document.querySelector('.img-modal-prev').onclick = function(e) {
+    e.stopPropagation();
+    showModalImg(modalCurrent - 1);
+};
+document.querySelector('.img-modal-next').onclick = function(e) {
+    e.stopPropagation();
+    showModalImg(modalCurrent + 1);
+};
 });
 
 function showToast(message) {
