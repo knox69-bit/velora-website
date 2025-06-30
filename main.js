@@ -220,6 +220,24 @@ document.querySelectorAll('.product-card').forEach(function(card) {
             });
         });
     });
+
+// Expand image on click
+document.querySelectorAll('.product-img, .color-img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', function() {
+        const modal = document.getElementById('img-modal');
+        const modalImg = document.getElementById('img-modal-img');
+        modalImg.src = img.src;
+        modal.style.display = 'flex';
+    });
+});
+document.querySelector('.img-modal-close').onclick = function() {
+    document.getElementById('img-modal').style.display = 'none';
+};
+document.getElementById('img-modal').onclick = function(e) {
+    if (e.target === this) this.style.display = 'none';
+};
+
 });
 
 function showToast(message) {
