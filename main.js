@@ -188,7 +188,17 @@ document.querySelectorAll('.product-img, .color-img').forEach(img => {
             images = [img.src];
         }
         modalImages = images.length ? images : [img.src];
-        modalCurrent = modalImages.indexOf(img.src);
+
+        // --- Find the current image index based on the img src shown in the card ---
+        let currentSrc = img.src;
+        // For .product-img, use the current src (may have changed by arrows)
+        // For .color-img, it's always the color image
+        modalCurrent = modalImages.findIndex(src => {
+            // Compare absolute URLs (img.src is absolute, modalImages may be relative)
+            let a = document.createElement('a');
+            a.href = src;
+            return a.href === currentSrc;
+        });
         if (modalCurrent === -1) modalCurrent = 0;
 
         const modal = document.getElementById('img-modal');
