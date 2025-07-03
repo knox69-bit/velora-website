@@ -17,12 +17,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 ? colorInput.getAttribute('data-color-img') 
                 : card.querySelector('.product-img').getAttribute('src');
             const color = colorInput.value;
+            const cardId = card.id; // get the product-card's id (e.g. "p1")
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             const existing = cart.find(item => item.name === name && item.price === price && item.color === color);
             if (existing) {
                 existing.quantity += 1;
             } else {
-                cart.push({ name, price, img, color, quantity: 1 });
+                cart.push({ name, price, img, color, quantity: 1, cardId });
             }
             localStorage.setItem('cart', JSON.stringify(cart));
             showToast(`${name} (${color}) added to cart!`);

@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const li = document.createElement('li');
             li.innerHTML = `
                 <img src="${item.img}" alt="${item.name}" style="height:32px;vertical-align:middle;margin-right:8px;">
-                <span class="cart-item-link" data-product="${item.name}" style="cursor:pointer;text-decoration:underline;">
+                <span class="cart-item-link" data-product="${item.name}" data-cardid="${item.cardId}" style="cursor:pointer;text-decoration:underline;">
                     ${item.name} - ${item.price} x ${item.quantity}
                 </span>
                 <span class="cart-color" style="display:inline-block;vertical-align:middle;margin-left:8px;">
@@ -49,9 +49,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add event listeners for cart item links (MUST be here)
         document.querySelectorAll('.cart-item-link').forEach(link => {
             link.addEventListener('click', function() {
-                const productName = link.getAttribute('data-product');
-                const productId = 'product-' + productName.replace(/\s+/g, '-');
-                window.location.href = 'index.html#' + productId;
+                const cardId = link.getAttribute('data-cardid');
+                if (cardId) {
+                    window.location.href = 'index.html#' + cardId;
+                }
             });
         });
     }
