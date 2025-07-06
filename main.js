@@ -244,3 +244,21 @@ function showToast(message) {
         toast.className = 'toast';
     }, 2000);
 }
+
+// Preload images only after pressing "Show More"
+document.querySelectorAll('.show-more-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const card = btn.closest('.product-card');
+        const imagesAttr = card.getAttribute('data-images');
+        if (imagesAttr && !card.dataset.preloaded) {
+            try {
+                const images = JSON.parse(imagesAttr);
+                images.forEach(src => {
+                    const img = new Image();
+                    img.src = src;
+                });
+                card.dataset.preloaded = "true";
+            } catch (e) {}
+        }
+    });
+});
