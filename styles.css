@@ -620,6 +620,11 @@ footer .contact-link:hover {
 
 
 @media (max-width: 700px) {
+    html, body {
+    overflow-x: hidden;
+    width: 100vw;
+    max-width: 100vw;
+}
     header {
         flex-direction: row;
         align-items: center;
@@ -709,10 +714,10 @@ footer .contact-link:hover {
     }
    .img-switch-btn {
     display: none !important;
-}
-.product-card.showing-more .img-switch-btn {
+    }
+    .product-card.showing-more .img-switch-btn {
     display: flex !important;
-}
+    }
     .img-switch-btn.prev { left: -80px; }
     .img-switch-btn.next { left: 80px; top: -32px; }
     .show-more-btn,
