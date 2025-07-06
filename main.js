@@ -249,6 +249,7 @@ function showToast(message) {
 document.querySelectorAll('.show-more-btn').forEach(btn => {
     btn.addEventListener('click', function() {
         const card = btn.closest('.product-card');
+        // Preload main images
         const imagesAttr = card.getAttribute('data-images');
         if (imagesAttr && !card.dataset.preloaded) {
             try {
@@ -256,6 +257,14 @@ document.querySelectorAll('.show-more-btn').forEach(btn => {
                 images.forEach(src => {
                     const img = new Image();
                     img.src = src;
+                });
+                // Preload color images
+                card.querySelectorAll('.color-options input[data-color-img]').forEach(radio => {
+                    const colorImg = radio.getAttribute('data-color-img');
+                    if (colorImg) {
+                        const img = new Image();
+                        img.src = colorImg;
+                    }
                 });
                 card.dataset.preloaded = "true";
             } catch (e) {}
