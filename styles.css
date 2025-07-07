@@ -789,4 +789,13 @@ footer .contact-link:hover {
     transition: box-shadow 0.6s;
 }
 
+/*prevent double-tap zoom on mobile devices*/
+button,
+  .img-switch-btn,
+  .show-more-btn,
+  .add-to-cart-btn {
+    /*font-size: 16px !important;*/
+    touch-action: manipulation; /* Helps prevent double-tap zoom on some browsers */
+  }
+
 }
