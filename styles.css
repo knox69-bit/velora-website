@@ -618,6 +618,71 @@ footer .contact-link:hover {
 .img-modal-next { right: 30px; }
 .img-modal-btn:hover { background: #ffb300; color: #222; }
 
+/* Hamburger icon */
+.hamburger-menu {
+    position: fixed;
+    top: 100px; /* adjust to be under your logo */
+    left: 32px;
+    z-index: 1200;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 8px 0 8px 10px ;
+    box-shadow:inset 0 0 0 2px #000000, inset 100px 100px 100px 100px #E1D5BF;
+    border-radius: 50%;
+}
+.hamburger-menu span {
+    display: block;
+    width: 28px;
+    height: 4px;
+    background: #222;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Side nav (hidden by default) */
+.side-nav {
+    position: fixed;
+    top: 90px; /* same as hamburger */
+    left: 0;
+    width: 220px;
+    height: auto;
+    background: #fffaf3;
+    box-shadow: 2px 0 16px rgba(34,34,34,1);
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+    padding: 1.2rem 1.2rem 1.2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    transform: translateX(-260px);
+    transition: transform 0.35s cubic-bezier(.4,0,.2,1);
+    z-index: 1199;
+}
+.side-nav.show {
+    transform: translateX(0);
+}
+.side-nav a {
+    color: #222;
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: bold;
+    padding: 0.4rem 0.7rem;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+.side-nav a:hover,
+.side-nav a:focus {
+    background: #ffb300;
+    color: #fff;
+}
 
 @media (max-width: 700px) {
     html, body {
@@ -798,4 +863,18 @@ button,
     touch-action: manipulation; /* Helps prevent double-tap zoom on some browsers */
   }
 
+/* Responsive: adjust for mobile */
+    .hamburger-menu {
+        top: 80px;
+        left: 14px;
+        width: 40px;
+        height: 36px;
+    }
+    .side-nav {
+        top: 75px;
+        width: 53vw;
+        min-width: 140px;
+        padding: 1rem 1rem 1rem 1.2rem;
+        box-shadow: 2px 0 16px rgba(0, 0, 0, 1);
+    }
 }

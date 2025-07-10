@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="imgs/Logo/Logo.jpg">
+    <title>Accessories | Velora</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo-link" style="display:inline-block;">
+            <img src="imgs/Logo/Logo.jpg" alt="Velora Logo" class="site-logo">
+        </a>
+        <div class="hamburger-menu" id="hamburger-menu" aria-label="Open navigation" tabindex="0">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="side-nav" id="side-nav">
+            <a href="index.html">Home</a>
+            <a href="accesso.html">Accessories</a>
+            <a href="#contact-us">Contact Us</a>
+        </nav>
+        <div class="header-center">
+            <h1>Welcome to Velora</h1>
+            <h2>where style meets the sun</h2>
+        </div>
+        <nav class="cart-nav">
+            <a href="cart.html" class="cart-link" title="View Cart">🛒</a>
+        </nav>
+    </header>
+    <main>
+        <section class="products">
+            <h3>Our Accessories Collection</h3>
+            <div class="product-grid">
+                <!-- Accessories Cards -->
+                 <!-- Each Accesspries card should have a unique ID and data attributes for images and colors -->
+                  <!-- Accessorie 1 -->
+                   <div class="product-card" id="A1" 
+                data-images='["imgs/p57/zzp57.4.jpg","imgs/p57/zzp57.1.jpg","imgs/p57/zzp57.2.jpg","imgs/p57/zzp57.3.jpg"]' 
+                data-outofstock="true">
+                    <img src="imgs/p57/zzp57.4.jpg" alt="A1" class="product-img">
+                    <button class="img-switch-btn prev" aria-label="Previous image">&#8592;</button>
+                    <button class="img-switch-btn next" aria-label="Next image">&#8594;</button>
+                    <h4>METAL GL9207</h4>
+                    <p>$34.99</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                    <button class="show-more-btn">Show More</button>
+                    <div class="product-description">               
+                        <div class="color-options">
+                            <label> 
+                                <input type="radio" name="color-p57" value="Gold-Brown" data-color-img="imgs/p57/zzp57.4.jpg" 
+                                data-lens-color="Brown">
+                                <span class="color-dot" style="background: linear-gradient(0deg,  #855b46 30%, #ecdcb9 70%); font-size:13px;"><br></span>
+                            </label>
+                            <label> 
+                                <input type="radio" name="color-p57" value="Grey" data-color-img="imgs/p57/zzp57.5.jpg" 
+                                data-lens-color="Blue">
+                                <span class="color-dot" style="background: linear-gradient(0deg,  #5b5563 30%, #deddde 70%); font-size:13px;"><br></span>
+                            </label>
+                            <label> 
+                                <input type="radio" name="color-p57" value="Black" data-color-img="imgs/p57/zzp57.6.jpg" 
+                                data-lens-color="Black">
+                                <span class="color-dot" style="background: linear-gradient(0deg,  #181818 30%, #181818 70%); font-size:13px;"><br></span>
+                            </label>
+                            <label> 
+                                <input type="radio" name="color-p57" value="Green" data-color-img="imgs/p57/zzp57.7.jpg" 
+                                data-lens-color="Green">
+                                <span class="color-dot" style="background: linear-gradient(0deg,  #657268 30%, #767676 70%); font-size:13px;"><br></span>
+                            </label>
+                        </div>
+                        <div class="color-img-box" style="display:none;">
+                            <img src="" alt="Color Preview" class="color-img" style="width:100%;height:80px;object-fit:scale-down;border-radius:8px;">
+                        </div>
+                        <br>
+                        <p class="lens-color-text"></p>
+                        <b>100% UV protection.<br>
+                        Polarized with Silicone Nosepad<br></b>
+                    </div>
+                </div>
+                <!-- Add more Accessorie cards as needed -->
+                 <!--end of Accessorie cards -->
+                 <!-- Modal for image expansion -->
+                <div id="img-modal" class="img-modal" style="display:none;">
+                    <span class="img-modal-close">&times;</span>
+                    <button class="img-modal-btn img-modal-prev" aria-label="Previous image">&#8592;</button>
+                    <img class="img-modal-content" id="img-modal-img" src="" alt="Expanded Image">
+                    <button class="img-modal-btn img-modal-next" aria-label="Next image">&#8594;</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="contact-social" id="contact-us">
+            <a href="https://wa.me/9613263495" class="social-icon whatsapp" target="_blank" aria-label="WhatsApp">
+                <!-- WhatsApp SVG -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="12" fill="#25D366"/>
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.198.297-.767.967-.94 1.166-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.007-.372-.009-.571-.009-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.099 3.205 5.077 4.372.71.306 1.263.489 1.695.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.288.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#fff"/>
+                </svg>
+            </a>
+            <a href="https://www.instagram.com/velora_eyewear/" class="social-icon instagram" target="_blank" aria-label="Instagram">
+                <!-- Instagram SVG -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect x="2" y="2" width="20" height="20" rx="6" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="17" cy="7" r="1.5" fill="currentColor"/>
+                </svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61577009861435&mibextid=wwXIfr&rdid=Ha0fZnoYALZsut0H&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16Yo7FfMem%2F%3Fmibextid%3DwwXIfr" class="social-icon facebook" target="_blank" aria-label="Facebook">
+                <!-- Facebook SVG -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect x="2" y="2" width="20" height="20" rx="6" stroke="currentColor" stroke-width="2"/>
+                    <path d="M16 8h-2a2 2 0 0 0-2 2v2h4" stroke="currentColor" stroke-width="2" fill="none"/>
+                    <path d="M12 16v-4" stroke="currentColor" stroke-width="2" fill="none"/>
+                </svg>
+            </a>
+            <a href="https://www.tiktok.com/@velora_eyewear?_t=ZS-8xEkDHu4HkV&_r=1" class="social-icon tiktok" target="_blank" aria-label="TikTok">
+                <!-- TikTok SVG -->
+                <svg width="24" height="24" viewBox="0 0 48 48" fill="none">
+                    <g>
+                        <path d="M33.5 6c.4 3.6 3.1 6.5 6.7 6.9v5.2c-2.1.2-4.2-.1-6.2-.9v13.7c0 7.1-5.8 12.9-12.9 12.9S8.2 38 8.2 30.9c0-7.1 5.8-12.9 12.9-12.9.5 0 1 .1 1.5.1v5.3c-.5-.1-1-.1-1.5-.1-4.2 0-7.6 3.4-7.6 7.6s3.4 7.6 7.6 7.6 7.6-3.4 7.6-7.6V6h5.7z" fill="#000"/>
+                        <path d="M33.5 6c.4 3.6 3.1 6.5 6.7 6.9v5.2c-2.1.2-4.2-.1-6.2-.9v13.7c0 7.1-5.8 12.9-12.9 12.9S8.2 38 8.2 30.9c0-7.1 5.8-12.9 12.9-12.9.5 0 1 .1 1.5.1v5.3c-.5-.1-1-.1-1.5-.1-4.2 0-7.6 3.4-7.6 7.6s3.4 7.6 7.6 7.6 7.6-3.4 7.6-7.6V6h5.7z" fill="#25F4EE"/>
+                        <path d="M39.8 12.9v5.2c-2.1.2-4.2-.1-6.2-.9v13.7c0 7.1-5.8 12.9-12.9 12.9S8.2 38 8.2 30.9c0-7.1 5.8-12.9 12.9-12.9.5 0 1 .1 1.5.1v5.3c-.5-.1-1-.1-1.5-.1-4.2 0-7.6 3.4-7.6 7.6s3.4 7.6 7.6 7.6 7.6-3.4 7.6-7.6V6h5.7c.4 3.6 3.1 6.5 6.7 6.9z" fill="#FE2C55" fill-opacity=".5"/>
+                    </g>
+                </svg>
+            </a>
+        </div>
+        <p>
+            &copy; 2025 Velora. All rights reserved.
+        </p>
+    </footer>
+    <div id="toast" class="toast"></div>
+    <script src="main.js"></script>
+</body>
+</html>

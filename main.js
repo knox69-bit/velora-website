@@ -271,3 +271,21 @@ document.querySelectorAll('.show-more-btn').forEach(btn => {
         }
     });
 });
+
+// Hamburger menu logic
+const hamburger = document.getElementById('hamburger-menu');
+const sideNav = document.getElementById('side-nav');
+hamburger.addEventListener('click', function(e) {
+    e.stopPropagation();
+    sideNav.classList.toggle('show');
+});
+document.addEventListener('click', function(e) {
+    if (!sideNav.contains(e.target) && !hamburger.contains(e.target)) {
+        sideNav.classList.remove('show');
+    }
+});
+sideNav.addEventListener('click', function(e) {
+    if (e.target.tagName === 'A') {
+        sideNav.classList.remove('show');
+    }
+});
