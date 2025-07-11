@@ -61,7 +61,7 @@ document.querySelectorAll('.product-card').forEach(function(card) {
     } catch (e) {}
     let current = 0;
 
-    // Get color step from data attribute, default to 1
+    // Get color step from data attribute
     const colorStep = parseInt(card.getAttribute('data-color-step')) || 1;
 
     function showImg(i) {
@@ -219,21 +219,35 @@ function showModalImg(idx) {
     document.getElementById('img-modal-img').src = modalImages[modalCurrent];
 }
 
-document.querySelector('.img-modal-close').onclick = function() {
-    document.getElementById('img-modal').style.display = 'none';
-};
-document.getElementById('img-modal').onclick = function(e) {
-    if (e.target === this) this.style.display = 'none';
-};
+const imgModalClose = document.querySelector('.img-modal-close');
+if (imgModalClose) {
+    imgModalClose.onclick = function() {
+        document.getElementById('img-modal').style.display = 'none';
+    };
+}
 
-document.querySelector('.img-modal-prev').onclick = function(e) {
-    e.stopPropagation();
-    showModalImg(modalCurrent - 1);
-};
-document.querySelector('.img-modal-next').onclick = function(e) {
-    e.stopPropagation();
-    showModalImg(modalCurrent + 1);
-};
+const imgModal = document.getElementById('img-modal');
+if (imgModal) {
+    imgModal.onclick = function(e) {
+        if (e.target === this) this.style.display = 'none';
+    };
+}
+
+const imgModalPrev = document.querySelector('.img-modal-prev');
+if (imgModalPrev) {
+    imgModalPrev.onclick = function(e) {
+        e.stopPropagation();
+        showModalImg(modalCurrent - 1);
+    };
+}
+
+const imgModalNext = document.querySelector('.img-modal-next');
+if (imgModalNext) {
+    imgModalNext.onclick = function(e) {
+        e.stopPropagation();
+        showModalImg(modalCurrent + 1);
+    };
+}
 });
 
 function showToast(message) {
