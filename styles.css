@@ -625,7 +625,7 @@ footer .contact-link:hover {
     left: 32px;
     z-index: 1200;
     width: 40px;
-    height: 40px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -866,13 +866,13 @@ button,
 /* Responsive: adjust for mobile */
     .hamburger-menu {
         top: 80px;
-        left: 14px;
+        left: 10px;
         width: 40px;
         height: 36px;
     }
     .side-nav {
         top: 75px;
-        width: 53vw;
+        width: 54vw;
         min-width: 140px;
         padding: 1rem 1rem 1rem 1.2rem;
         box-shadow: 2px 0 16px rgba(0, 0, 0, 1);
